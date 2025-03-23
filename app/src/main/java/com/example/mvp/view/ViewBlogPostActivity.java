@@ -1,6 +1,7 @@
 package com.example.mvp.view;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
@@ -32,6 +33,7 @@ public class ViewBlogPostActivity extends AppCompatActivity {
     private Button btnShare;
     private Toolbar toolbar;
     private int blogId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +46,14 @@ public class ViewBlogPostActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        Drawable overflowIcon = toolbar.getOverflowIcon();
+        if (overflowIcon != null) {
+            overflowIcon.setTint(getResources().getColor(R.color.white));
+            toolbar.setOverflowIcon(overflowIcon);
+        }
+
+
         blogId = getIntent().getIntExtra("BLOG_ID", -1);
         viewModel = new ViewModelProvider(this).get(ViewModel.class);
 
@@ -102,6 +112,7 @@ public class ViewBlogPostActivity extends AppCompatActivity {
         inflater.inflate(R.menu.toolbar_menu, menu);
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
