@@ -2,39 +2,71 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_gradient">
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
 
-    <LinearLayout
-        android:orientation="vertical"
+
+
+    <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:id="@+id/toolbar">
 
-        <TextView
-            android:id="@+id/viewTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:paddingBottom="8dp" />
+    </androidx.appcompat.widget.Toolbar>
 
-        <TextView
-            android:id="@+id/viewContent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="8dp" />
+    <TextView
+        android:id="@+id/viewTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:background="@drawable/content_bg"
+        android:layout_margin="20dp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:padding="10dp" />
 
-        <ImageView
-            android:id="@+id/viewImage"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:scaleType="centerCrop"
-            android:contentDescription="Blog Image" />
 
-        <Button
-            android:id="@+id/btnShare"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Share" />
 
-    </LinearLayout>
+
+    <TextView
+        android:id="@+id/viewContent"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/viewTitle"
+        android:background="@drawable/content_bg"
+        android:layout_margin="20dp"
+        android:text="text"
+        android:padding="10dp"
+        android:scrollbarStyle="insideInset"/>
+
+    <ImageView
+        android:id="@+id/viewImage"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/content_bg"
+        android:layout_marginHorizontal="20dp"
+        android:layout_below="@id/viewContent"
+        android:scaleType="centerCrop"
+        android:contentDescription="Blog Image" />
+
+    <Button
+        android:id="@+id/btnShare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/viewImage"
+        android:layout_marginTop="30dp"
+        app:backgroundTint="@null"
+        android:background="@drawable/button_bg"
+        android:layout_marginHorizontal="20dp"
+        android:drawableEnd="@drawable/share_ic"
+
+        android:paddingEnd="10dp"
+        android:text="Share" />
+
+</RelativeLayout>
 </ScrollView>

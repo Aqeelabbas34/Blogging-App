@@ -1,13 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:id="@+id/toolbar">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Blogs"
+
+                android:id="@+id/tvBlogs"
+               android:layout_centerInParent="true"
+                android:textStyle="bold"
+                android:fontFamily="serif"
+                android:textSize="30sp"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="delete"
+
+                android:id="@+id/btnDelete"
+               android:layout_centerInParent="true"
+
+                android:drawableEnd="@drawable/delete_ic"
+                android:visibility="gone"
+                android:textSize="18dp"
+                android:textColor="@color/white"/>
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
 
     <SearchView
         android:id="@+id/searchView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:queryHint="Search Blog Posts" />
+        android:queryHint="Search Blog Posts"
+        android:layout_below="@id/toolbar"
+        android:background="@drawable/search_bg"
+        android:layout_margin="20dp"
+        android:layout_alignParentStart="true"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -15,6 +56,12 @@
         android:layout_height="match_parent"
         android:layout_below="@id/searchView"
         android:padding="16dp" />
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true">
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAdd"
@@ -24,6 +71,8 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="16dp"
         android:backgroundTint="@color/colorPrimary"
-        android:src="@android:drawable/ic_input_add" />
+        android:contentDescription="TODO"
+        android:src="@drawable/add_ic"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </RelativeLayout>
