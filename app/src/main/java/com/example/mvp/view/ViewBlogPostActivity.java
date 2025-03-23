@@ -35,7 +35,7 @@ public class ViewBlogPostActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_post);
+        setContentView(R.layout.activity_view_blog_post);
 
         viewPostTitle = findViewById(R.id.viewTitle);
         viewPostContent = findViewById(R.id.viewContent);
