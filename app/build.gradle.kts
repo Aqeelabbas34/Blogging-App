@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.mvp"
-        minSdk = 24
+        minSdk = 28
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -37,6 +37,7 @@ dependencies {
     implementation(libs.recyclerview)
     implementation(libs.lifecycle.extensions)
     implementation(libs.glide)
+    implementation(libs.car.ui.lib)
     annotationProcessor(libs.compiler)
     implementation(libs.lifecycle.livedata)
     implementation(libs.lifecycle.viewmodel)

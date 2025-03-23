@@ -1,7 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-<gradient android:angle="0"
-    android:startColor="#2DABBD"
-    android:endColor="#B65454"
-    android:centerColor="#856969"/>
-</shape>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Base Background Color -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="135"
+                android:endColor="#64748B"
+                android:startColor="#1E293B"
+                android:type="linear" />
+        </shape>
+    </item>
+
+    <!-- Overlay Gradient for depth -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="45"
+                android:endColor="#7E868E"
+                android:startColor="#334155"
+                android:type="linear" />
+        </shape>
+    </item>
+
+    <!-- Floating Soft Light Effect -->
+    <item
+        android:left="40dp"
+        android:top="80dp">
+        <shape android:shape="oval">
+            <size
+                android:width="300dp"
+                android:height="300dp" />
+            <solid android:color="#AF1212" />
+            <gradient
+                android:centerColor="#33FFFFFF"
+                android:endColor="#00FFFFFF"
+                android:gradientRadius="150dp"
+                android:type="radial" />
+        </shape>
+    </item>
+
+</layer-list>

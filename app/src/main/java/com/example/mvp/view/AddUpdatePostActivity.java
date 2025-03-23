@@ -92,6 +92,7 @@ public class AddUpdatePostActivity extends AppCompatActivity {
         btnSave.setOnClickListener(v -> saveNewPost());
         btnUpdate.setOnClickListener(v -> updateExistingPost());
     }
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
