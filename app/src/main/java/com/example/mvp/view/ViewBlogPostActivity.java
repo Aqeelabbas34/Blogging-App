@@ -46,7 +46,7 @@ public class ViewBlogPostActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        getSupportActionBar().setTitle("Blog Details");
         Drawable overflowIcon = toolbar.getOverflowIcon();
         if (overflowIcon != null) {
             overflowIcon.setTint(getResources().getColor(R.color.white));

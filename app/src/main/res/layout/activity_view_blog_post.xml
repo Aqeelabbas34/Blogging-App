@@ -82,9 +82,10 @@
                     android:layout_marginHorizontal="20dp"
                     android:layout_marginTop="30dp"
                     android:background="@drawable/button_bg"
-                    android:drawableEnd="@drawable/share_ic"
+                    android:drawableEnd="@drawable/share2_ic"
                     android:paddingEnd="10dp"
                     android:text="Share"
+                    android:textColor="@color/white"
                     app:backgroundTint="@null" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>

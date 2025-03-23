@@ -7,12 +7,14 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.bumptech.glide.Glide;
@@ -33,7 +35,9 @@ import java.util.Objects;
 public class AddUpdatePostActivity extends AppCompatActivity {
 
     private EditText titleEdit, contentEdit;
+    private CardView imageCard;
     private ImageView imageViewUpload;
+    private TextView attachmentTv,postTxt,updatetxt;
     private Button btnSave, btnUpdate;
     private ViewModel viewModel;
     private Uri selectedImageUri;
@@ -45,8 +49,10 @@ public class AddUpdatePostActivity extends AppCompatActivity {
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
                 if (result.getResultCode() == RESULT_OK && result.getData() != null) {
                     selectedImageUri = result.getData().getData();
-                    savedImagePath = saveImageToInternalStorage(selectedImageUri); // ✅ Save new image path
+                    savedImagePath = saveImageToInternalStorage(selectedImageUri); // Save image to internal storage Save new image path
                     Glide.with(this).load(new File(savedImagePath)).into(imageViewUpload);
+                    attachmentTv.setVisibility(TextView.GONE);
+                    imageCard.setRadius(20);
                 }
             });
 
@@ -60,21 +66,27 @@ public class AddUpdatePostActivity extends AppCompatActivity {
         imageViewUpload = findViewById(R.id.imageView);
         btnSave = findViewById(R.id.btnSave);
         btnUpdate = findViewById(R.id.btnUpdate);
+        attachmentTv=findViewById(R.id.addImageIC);
         toolbar = findViewById(R.id.toolbar);
+        imageCard=findViewById(R.id.imageCard);
+        postTxt=findViewById(R.id.postTxt);
+        updatetxt=findViewById(R.id.updateTxt);
+
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("");
         viewModel = new ViewModelProvider(this).get(ViewModel.class);
 
         imageViewUpload.setOnClickListener(v -> pickImageFromGallery());
 
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Check for intent extras to determine if editing an existing post
         Intent intent = getIntent();
         if (intent.hasExtra("EDIT_MODE")) {
             isEditMode = intent.getBooleanExtra("EDIT_MODE", false);
             if (isEditMode) {
+                postTxt.setVisibility(TextView.GONE);
+                updatetxt.setVisibility(TextView.VISIBLE);
                 blogId = intent.getIntExtra("BLOG_ID", -1);
                 titleEdit.setText(intent.getStringExtra("TITLE"));
                 contentEdit.setText(intent.getStringExtra("CONTENT"));
