@@ -87,6 +87,8 @@ public class AddUpdatePostActivity extends AppCompatActivity {
             if (isEditMode) {
                 postTxt.setVisibility(TextView.GONE);
                 updatetxt.setVisibility(TextView.VISIBLE);
+                attachmentTv.setVisibility(TextView.GONE);
+                imageCard.setRadius(20);
                 blogId = intent.getIntExtra("BLOG_ID", -1);
                 titleEdit.setText(intent.getStringExtra("TITLE"));
                 contentEdit.setText(intent.getStringExtra("CONTENT"));
